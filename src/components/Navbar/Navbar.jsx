@@ -44,7 +44,7 @@ const Navbar = () => {
       <div className="container">
         <div className="navbar">
 
-          <div className="logo">
+          <div className="logo" onClick={() => handleNavClick('/')} role="button" tabIndex={0} aria-label="Go to home">
             <p>Gulzeesh</p>
           </div>
 
