@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "name": "Mens Casual Premium Slim Fit T-Shirts",
+    "colour": "Blue",
+    "gender": "Men",
+    "price": 22,
+    "type": "Basic",
+    "quantity": 15,
+    "image": "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_t.png"
+  },
+  {
+    "id": 2,
+    "name": "Mens Casual Slim Fit T-Shirt",
+    "colour": "Grey",
+    "gender": "Men",
+    "price": 16,
+    "type": "Basic",
+    "quantity": 20,
+    "image": "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_t.png"
+  },
+  {
+    "id": 3,
+    "name": "Mens Cotton Jacket",
+    "colour": "Black",
+    "gender": "Men",
+    "price": 56,
+    "type": "Hoodie",
+    "quantity": 8,
+    "image": "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_t.png"
+  },
+  {
+    "id": 4,
+    "name": "MBJ Women's Solid Short Sleeve V-Neck",
+    "colour": "White",
+    "gender": "Women",
+    "price": 10,
+    "type": "Basic",
+    "quantity": 25,
+    "image": "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_t.png"
+  },
+  {
+    "id": 5,
+    "name": "Opna Women's Short Sleeve Moisture Wicking",
+    "colour": "Purple",
+    "gender": "Women",
+    "price": 8,
+    "type": "Basic",
+    "quantity": 18,
+    "image": "https://fakestoreapi.com/img/51eg55uWmdL._AC_UX679_t.png"
+  },
+  {
+    "id": 6,
+    "name": "DANVOUY Womens T Shirt Casual Cotton Short",
+    "colour": "Green",
+    "gender": "Women",
+    "price": 13,
+    "type": "Basic",
+    "quantity": 12,
+    "image": "https://fakestoreapi.com/img/61pHAEJ4NML._AC_UX679_t.png"
+  },
+  {
+    "id": 7,
+    "name": "BIYLACLESEN Women's 3-in-1 Snowboard Jacket",
+    "colour": "Blue",
+    "gender": "Women",
+    "price": 57,
+    "type": "Hoodie",
+    "quantity": 6,
+    "image": "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_t.png"
+  },
+  {
+    "id": 8,
+    "name": "Lock and Love Women's Hooded Moto Jacket",
+    "colour": "Black",
+    "gender": "Women",
+    "price": 30,
+    "type": "Hoodie",
+    "quantity": 9,
+    "image": "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_t.png"
+  },
+  {
+    "id": 9,
+    "name": "Rain Jacket Women Windbreaker Striped",
+    "colour": "Red",
+    "gender": "Women",
+    "price": 40,
+    "type": "Hoodie",
+    "quantity": 11,
+    "image": "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2t.png"
+  }
+]

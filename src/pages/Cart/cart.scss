@@ -1,0 +1,335 @@
+.cart-page {
+  min-height: 100vh;
+  padding: var(--spacing-12) 0;
+  background: var(--surface-container-low);
+
+  h1 {
+    color: var(--color-primary);
+    font-family: var(--font-display);
+    font-size: var(--text-display-sm);
+    margin-bottom: 0.5rem;
+  }
+
+  .cart-subtitle {
+    color: var(--on-surface-variant);
+    margin-bottom: var(--spacing-8);
+  }
+
+  .empty-cart {
+    text-align: center;
+    padding: var(--spacing-8);
+    background: var(--surface);
+    border: 1px dashed var(--outline-variant);
+    border-radius: var(--radius-md);
+    color: var(--on-surface-variant);
+    font-weight: 600;
+  }
+
+  // ── Two-column layout ──────────────────────────────────────
+  .cart-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--spacing-8);
+    align-items: start;
+  }
+
+  // ── Cart Items panel ───────────────────────────────────────
+  .cart-items {
+    background: var(--surface);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    box-shadow: var(--shadow-ambient);
+  }
+
+  .cart-item {
+    display: grid;
+    grid-template-columns: 120px 1fr auto;
+    gap: var(--spacing-4);
+    align-items: center;
+    border-bottom: 1px solid var(--outline-variant);
+    padding: var(--spacing-4) 0;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      border-radius: var(--radius-md);
+      object-fit: cover;
+      background: #f4f4f4;
+    }
+  }
+
+  // Item name + meta + qty
+  .item-content {
+    h2 {
+      color: var(--color-primary);
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.35rem;
+    }
+
+    p {
+      color: var(--on-surface-variant);
+      font-size: 0.9rem;
+      margin-bottom: 0;
+    }
+  }
+
+  .quantity-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.75rem;
+
+    button {
+      width: 32px;
+      height: 32px;
+      border: 1px solid var(--outline-variant);
+      background: var(--surface);
+      border-radius: var(--radius-sm);
+      color: var(--color-primary);
+      font-weight: 700;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s;
+
+      &:hover {
+        background: var(--surface-container-low);
+      }
+
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+    }
+
+    span {
+      min-width: 1.5rem;
+      text-align: center;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+  }
+
+  .stock-info {
+    font-size: 0.8rem;
+    color: var(--color-tertiary);
+    margin-top: 0.5rem;
+  }
+
+  // Right column of each cart item: price + remove
+  .item-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+    align-self: center;
+
+    .item-price {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--color-primary);
+      margin: 0;
+    }
+
+    .remove-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      border: none;
+      background: transparent;
+      color: #d73a49;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      padding: 0.25rem 0;
+      transition: opacity 0.15s;
+
+      &:hover {
+        opacity: 0.75;
+      }
+    }
+  }
+
+  // ── Order Summary panel ────────────────────────────────────
+  .cart-summary {
+    background: linear-gradient(140deg, #fff 0%, #f8f9fc 65%, #f1f5ff 100%);
+    border: 1px solid rgba(9, 30, 66, 0.08);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-6);
+    box-shadow: 0 16px 32px rgba(33, 33, 33, 0.08);
+    transition: transform var(--transition-medium), box-shadow var(--transition-medium);
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 20px 40px rgba(33, 33, 33, 0.12);
+    }
+
+    // "Order Summary" heading — bold, dark navy, tight margin
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #0f1660;
+      margin-bottom: 1rem;
+      letter-spacing: -0.01em;
+    }
+  }
+
+  // Subtotal / Shipping / Tax rows
+  .summary-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+
+    // Left label — grey, normal weight
+    span {
+      font-size: 0.95rem;
+      font-weight: 400;
+      color: #7482a4;
+    }
+
+    // Right value — dark navy, bold
+    strong {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #0f1660;
+    }
+  }
+
+  // Shipping "Calculated at next step" — bold blue
+  .shipping-text {
+    color: #1a237e !important;
+    font-weight: 700 !important;
+  }
+
+  // Total row — larger, heavier, separated by top border
+  .summary-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 0.5rem;
+    margin-bottom: 1.25rem;
+    border-top: 1px solid rgba(9, 30, 66, 0.1);
+    padding-top: 1rem;
+
+    // "Total" label
+    span {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: #0f1660;
+    }
+
+    // "$33.48" value — biggest element in the panel
+    strong {
+      font-size: 1.55rem;
+      font-weight: 900;
+      color: #0f1660;
+    }
+  }
+
+  // ── Checkout button ────────────────────────────────────────
+  .checkout-btn {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(130deg, #ff8b04 0%, #ffaa45 100%);
+    color: #fff;
+    border: none;
+    border-radius: 50px; // fully-rounded pill like screenshot
+    padding: 1.05rem 1.25rem;
+    font-weight: 800;
+    font-size: 1rem;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    box-shadow: 0 8px 24px rgba(251, 107, 0, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 30px rgba(251, 107, 0, 0.42);
+    }
+  }
+
+  // "SECURE ENCRYPTED PAYMENT" — hairline dividers above & below
+  .secure-text {
+    text-align: center;
+    margin-top: 0.9rem;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 0.68rem;
+    color: #7482a4;
+    font-weight: 700;
+    border-top: 1px solid rgba(9, 30, 66, 0.08);
+    border-bottom: 1px solid rgba(9, 30, 66, 0.08);
+    padding: 0.6rem 0;
+  }
+
+  // ── Payment section ────────────────────────────────────────
+  .payment-section {
+    margin-top: 1rem;
+
+    .payment-label {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #0f1660;
+      margin-bottom: 0.65rem;
+    }
+  }
+
+  .payment-tags {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+
+    span {
+      background: #eef0f5;
+      padding: 0.45rem 0.9rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #3d4a6b;
+      letter-spacing: 0.05em;
+    }
+  }
+
+  // ── Responsive ────────────────────────────────────────────
+  @media (max-width: 1024px) {
+    .cart-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .cart-summary {
+      margin-top: var(--spacing-6);
+    }
+  }
+
+  @media (max-width: 600px) {
+    padding: var(--spacing-8) 0;
+
+    .cart-item {
+      grid-template-columns: 90px 1fr;
+      grid-template-rows: auto auto;
+
+      .item-actions {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+
+    .payment-tags {
+      flex-wrap: wrap;
+    }
+  }
+}

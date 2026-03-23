@@ -1,0 +1,314 @@
+/* ─── DESKTOP SIDEBAR ─────────────────────────────────────── */
+.filter-div {
+  width: 100%;
+  max-width: 250px;
+  padding: var(--spacing-4);
+
+  .filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-4);
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      margin: 0;
+    }
+  }
+
+  /* EACH SECTION */
+  .filter-section {
+    margin-bottom: var(--spacing-6);
+
+    h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--spacing-2);
+    }
+
+    /* OPTIONS */
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      .filter-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        cursor: pointer;
+        color: var(--on-surface);
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--color-primary);
+        }
+      }
+    }
+  }
+
+  .btn-clear-all {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--outline);
+    border-radius: 0.5rem;
+    background-color: var(--surface-container-low);
+    color: var(--color-primary);
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background-color: var(--surface-container-high);
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 1px rgba(0, 6, 102, 0.075), 0 6px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    &:active {
+      transform: translateY(1px);
+    }
+  }
+}
+
+/* Hide desktop sidebar on tablet & mobile */
+.desktop-filters {
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+
+/* ─── FILTER FAB (mobile/tablet trigger) ─────────────────── */
+.filter-fab {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 200;
+
+    padding: 0.7rem 1.4rem;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+
+    background-color: var(--color-primary);
+    color: var(--on-primary, #fff);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateX(-50%) translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    &:active {
+      transform: translateX(-50%) translateY(0);
+    }
+  }
+}
+
+
+/* ─── OVERLAY ─────────────────────────────────────────────── */
+.filter-overlay {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0);
+    z-index: 299;
+    pointer-events: none;
+    transition: background 0.3s ease;
+
+    &.visible {
+      background: rgba(0, 0, 0, 0.45);
+      pointer-events: all;
+    }
+  }
+}
+
+
+/* ─── BOTTOM SHEET DRAWER ─────────────────────────────────── */
+.filter-drawer {
+  display: none;
+
+  @media (max-width: 1023px) {
+    display: flex;
+    flex-direction: column;
+
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 300;
+
+    background: var(--surface);
+    border-radius: 1.25rem 1.25rem 0 0;
+    box-shadow: 0 -4px 32px rgba(0, 0, 0, 0.15);
+
+    /* Slide-up transition */
+    transform: translateY(100%);
+    transition: transform 0.38s cubic-bezier(0.32, 0.72, 0, 1);
+    will-change: transform;
+
+    /* Cap height so it never covers full screen */
+    max-height: 85dvh;
+
+    &.open {
+      transform: translateY(0);
+    }
+  }
+}
+
+/* Drag handle pill */
+.drawer-handle {
+  width: 2.5rem;
+  height: 4px;
+  border-radius: 999px;
+  background: var(--on-surface-variant, #aaa);
+  opacity: 0.35;
+  margin: 0.75rem auto 0;
+  flex-shrink: 0;
+}
+
+/* Scrollable body */
+.drawer-body {
+  overflow-y: auto;
+  padding: 0.5rem var(--spacing-4, 1rem) 1rem;
+  flex: 1;
+
+  /* Reuse filter-div styles inside drawer */
+  .filter-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-4, 1rem);
+    padding-top: 0.5rem;
+
+    h2 {
+      font-size: 1.25rem;
+      color: var(--color-primary);
+      margin: 0;
+    }
+  }
+
+  .filter-close-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.25rem;
+    color: var(--on-surface-variant);
+    line-height: 0;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  .filter-section {
+    margin-bottom: var(--spacing-6, 1.5rem);
+
+    h4 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--on-surface-variant);
+      margin-bottom: var(--spacing-2, 0.5rem);
+    }
+
+    .filter-options {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+
+      .filter-item {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        cursor: pointer;
+        color: var(--on-surface);
+        font-size: 1rem;
+        padding: 0.2rem 0;
+        transition: color 0.2s ease;
+
+        &:hover {
+          color: var(--color-primary);
+        }
+
+        input[type="checkbox"] {
+          width: 1rem;
+          height: 1rem;
+          accent-color: var(--color-primary);
+          flex-shrink: 0;
+        }
+      }
+    }
+  }
+}
+
+
+/* ─── DRAWER ACTION BUTTONS ───────────────────────────────── */
+.drawer-actions {
+  display: flex;
+  gap: 0.75rem;
+  padding: 0.75rem 0 0.5rem;
+  position: sticky;
+  bottom: 0;
+  background: var(--surface);
+
+  button {
+    flex: 1;
+    padding: 0.75rem 1rem;
+    border-radius: 0.6rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: opacity 0.2s ease, transform 0.15s ease;
+
+    &:active {
+      transform: scale(0.97);
+    }
+  }
+
+  .btn-clear {
+    background: var(--surface-container-low);
+    border: 1.5px solid var(--outline, #ccc);
+    color: var(--color-primary);
+
+    &:hover {
+      background: var(--surface-container-high);
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+      box-shadow: 0 4px 10px rgba(0, 6, 102, 0.08);
+    }
+  }
+
+  .btn-apply {
+    background: var(--color-primary);
+    color: var(--on-primary, #fff);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+
+    &:hover {
+      opacity: 0.9;
+    }
+  }
+}

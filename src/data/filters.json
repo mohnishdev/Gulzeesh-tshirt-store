@@ -1,0 +1,41 @@
+[
+  {
+    "title": "Gender",
+    "key": "gender",
+    "options": [
+      { "label": "Men", "value": "men" },
+      { "label": "Women", "value": "women" },
+      { "label": "Unisex", "value": "unisex" }
+    ]
+  },
+  {
+    "title": "Colour",
+    "key": "colour",
+    "options": [
+      { "label": "Black", "value": "black" },
+      { "label": "White", "value": "white" },
+      { "label": "Blue", "value": "blue" },
+      { "label": "Green", "value": "green" },
+      { "label": "Red", "value": "red" },
+      { "label": "Grey", "value": "grey" },
+      { "label": "Purple", "value": "purple" }
+    ]
+  },
+  {
+    "title": "Price Range",
+    "key": "price",
+    "options": [
+      { "label": "0-250", "value": "0-250" },
+      { "label": "251-450", "value": "251-450" },
+      { "label": "450+", "value": "450+" }
+    ]
+  },
+  {
+    "title": "Type",
+    "key": "type",
+    "options": [
+      { "label": "Basic", "value": "basic" },
+      { "label": "Hoodie", "value": "hoodie" }
+    ]
+  }
+]

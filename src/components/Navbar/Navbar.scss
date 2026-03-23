@@ -1,0 +1,205 @@
+.main-nav {
+  width: 100%;
+  background-color: var(--surface);
+  position: relative;
+  z-index: 100;
+}
+
+
+/* ─── NAVBAR ─────────────────────────────────────────────── */
+.navbar {
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+/* ─── LOGO ────────────────────────────────────────────────── */
+.logo {
+  flex-shrink: 0;
+
+  p {
+    color: var(--color-primary);
+    font-size: 1.8rem;
+    font-weight: 600;
+  }
+}
+
+
+/* ─── DESKTOP NAV LINKS ───────────────────────────────────── */
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  display: flex;
+  gap: 1.5rem;
+
+  flex: 1;
+  justify-content: center;
+
+  li {
+    cursor: pointer;
+    color: var(--on-surface);
+    font-size: 1.2rem;
+    position: relative;
+    padding-bottom: 2px;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--color-primary);
+      transition: width 0.25s ease;
+    }
+
+    &:hover::after,
+    &.active::after {
+      width: 100%;
+    }
+
+    &.active {
+      color: var(--color-primary);
+      font-weight: 600;
+    }
+  }
+
+  /* Hide on tablet & mobile */
+  @media (max-width: 1023px) {
+    display: none;
+  }
+}
+
+
+/* ─── ACTIONS ─────────────────────────────────────────────── */
+.nav-actions {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  .cart-icon-btn {
+    position: relative;
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .cart-icon {
+    color: var(--on-surface);
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: var(--color-primary);
+    }
+  }
+
+  .cart-count {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: var(--color-tertiary);
+    color: var(--on-tertiary);
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius-full);
+    min-width: 18px;
+    text-align: center;
+  }
+}
+
+
+/* ─── HAMBURGER BUTTON ────────────────────────────────────── */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  padding: 0.25rem;
+  cursor: pointer;
+  color: var(--on-surface);
+  line-height: 0;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-primary);
+  }
+
+  /* Show on tablet & mobile */
+  @media (max-width: 1023px) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+
+/* ─── MOBILE / TABLET DRAWER ──────────────────────────────── */
+.mobile-menu {
+  display: none; /* hidden on desktop */
+  position: absolute;
+  top: 4.5rem; /* sits right below navbar */
+  left: 0;
+  width: 100%;
+  background-color: var(--surface);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+
+  /* Slide-down animation */
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.35s ease;
+
+  &.open {
+    max-height: 400px;
+    padding: 0.5rem 0 1rem;
+  }
+
+  @media (max-width: 1023px) {
+    display: block;
+  }
+}
+
+.mobile-nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  li {
+    cursor: pointer;
+    color: var(--on-surface);
+    font-size: 1.1rem;
+    padding: 0.85rem 1.5rem;
+    transition: background-color 0.2s ease, color 0.2s ease;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    &.active {
+      color: var(--color-primary);
+      font-weight: 600;
+      border-left: 3px solid var(--color-primary);
+      padding-left: calc(1.5rem - 3px);
+    }
+  }
+}
+
+
+/* ─── OVERLAY ─────────────────────────────────────────────── */
+.menu-overlay {
+  position: fixed;
+  inset: 0;
+  top: 4.5rem;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 99;
+  cursor: pointer;
+
+  @media (min-width: 1024px) {
+    display: none;
+  }
+}

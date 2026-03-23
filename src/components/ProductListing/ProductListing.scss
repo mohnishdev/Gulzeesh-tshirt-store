@@ -1,0 +1,32 @@
+.product-listing {
+  width: 100%;
+}
+
+
+/* GRID */
+.product-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.no-data {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 2rem;
+  color: var(--on-surface-variant);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 1024px) {
+  .product-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .product-grid {
+    grid-template-columns: 1fr;
+  }
+}

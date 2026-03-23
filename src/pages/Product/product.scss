@@ -1,0 +1,28 @@
+.product-page {
+  width: 100%;
+}
+
+/* SECTION BACKGROUND */
+.product-section {
+  padding: var(--spacing-8) 0;
+}
+
+
+/* MAIN LAYOUT (sidebar + products) */
+.product-layout {
+  display: flex;
+  gap: 2rem;
+}
+
+
+/* FILTERS (left) */
+.product-layout> :first-child {
+  width: 250px;
+  flex-shrink: 0;
+}
+
+
+/* PRODUCTS (right) */
+.product-layout> :last-child {
+  flex: 1;
+}

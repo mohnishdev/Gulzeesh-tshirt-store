@@ -1,0 +1,144 @@
+:root {
+  /* =========================================
+     1. BRAND COLORS (Core Identity)
+  ========================================= */
+
+  --color-primary: #000666;
+  --color-primary-container: #1a237e;
+  --color-on-primary: #ffffff;
+
+  --container-color: #FBF8FF;
+
+  --color-secondary: #5f6c7b;
+  --color-secondary-container: #e4e8ee;
+  --color-on-secondary: #1b1b21;
+  --color-on-secondary-container: #1b1b21;
+
+  --color-tertiary: #fb6b00;
+  --color-tertiary-container: #ffe2d1;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #fb6b00;
+
+
+  /* =========================================
+     2. SURFACE SYSTEM (Tonal Layering)
+  ========================================= */
+
+  --surface: #ffffff;
+  --surface-container-low: #f8f9fc;
+  --surface-container-lowest: #ffffff;
+
+  --surface-container-high: #f1f3f8;
+  --surface-container-highest: #e9ecf4;
+
+  --on-surface: #1b1b21;
+  --on-surface-variant: #5f6c7b;
+
+  --outline-variant: rgba(27, 27, 33, 0.2);
+
+
+  /* =========================================
+     3. GRADIENTS (Glass & Premium Feel)
+  ========================================= */
+
+  --gradient-primary: linear-gradient(
+    135deg,
+    var(--color-primary),
+    var(--color-primary-container)
+  );
+
+  --gradient-cta: linear-gradient(
+    135deg,
+    #fb6b00,
+    #ff8a3d
+  );
+
+
+  /* =========================================
+     4. GLASSMORPHISM
+  ========================================= */
+
+  --glass-bg: rgba(255, 255, 255, 0.8);
+  --glass-blur: 20px;
+
+
+  /* =========================================
+     5. TYPOGRAPHY
+  ========================================= */
+
+  --font-display: "Plus Jakarta Sans", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  /* Scale */
+  --text-display-lg: 3.5rem;
+  --text-display-md: 2.5rem;
+  --text-display-sm: 2rem;
+
+  --text-body-lg: 1.125rem;
+  --text-body-md: 1rem;
+  --text-body-sm: 0.875rem;
+
+  --text-label-sm: 0.75rem;
+
+
+  /* =========================================
+     6. SPACING SYSTEM (Luxury White Space)
+  ========================================= */
+
+  --spacing-2: 0.5rem;
+  --spacing-4: 1rem;
+  --spacing-6: 1.5rem;
+  --spacing-8: 2rem;
+  --spacing-12: 3rem;
+  --spacing-16: 4rem;
+  --spacing-20: 5rem;
+
+
+  /* =========================================
+     7. RADIUS (Controlled Softness)
+  ========================================= */
+
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-full: 9999px;
+
+
+  /* =========================================
+     8. SHADOWS (Ambient Only)
+  ========================================= */
+
+  --shadow-ambient: 0px 10px 40px rgba(27, 27, 33, 0.06);
+
+
+  /* =========================================
+     9. TRANSITIONS
+  ========================================= */
+
+  --transition-fast: 150ms ease;
+  --transition-medium: 300ms ease;
+  --transition-slow: 500ms ease;
+}
+
+
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body */
+body {
+  font-family: var(--font-body);
+  background-color: var(--surface);
+  color: var(--on-surface);
+}
+
+.container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-4);
+}
